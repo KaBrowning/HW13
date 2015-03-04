@@ -56,7 +56,7 @@
             <AlternatingItemStyle BackColor="#E3EAEB" />
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         </asp:DataList>
-        <asp:SqlDataSource ID="sdsProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [ProductID], [ProductName], [UnitPrice], [UnitsInStock] FROM [tblProducts] WHERE ([CategoryID] = ?)">
+        <asp:SqlDataSource ID="sdsProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT ProductID, ProductName, UnitPrice, UnitsInStock, UnitPrice * UnitsInStock AS Total FROM tblProducts WHERE (CategoryID = ?)">
             <SelectParameters>
                 <asp:ControlParameter ControlID="ddlCategory" Name="CategoryID" PropertyName="SelectedValue" Type="Int32" />
             </SelectParameters>
