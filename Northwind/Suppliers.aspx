@@ -13,7 +13,7 @@
    </header>
     <section>
     <form id="form1" runat="server">
-        <asp:DropDownList ID="ddlSuppliers" runat="server" DataSourceID="sdsCountry" DataTextField="Country" DataValueField="Country">
+        <asp:DropDownList ID="ddlSuppliers" runat="server" DataSourceID="sdsCountry" DataTextField="Country" DataValueField="Country" AutoPostBack="True">
         </asp:DropDownList>
         <asp:SqlDataSource ID="sdsCountry" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
             ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT [Country] FROM 
