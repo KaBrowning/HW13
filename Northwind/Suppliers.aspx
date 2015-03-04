@@ -37,7 +37,7 @@
                         </td>
                         <td class="col2">
                             <asp:Label ID="lblPhoneNumber" runat="server" 
-                                Text='<%# Eval("PhoneNumber") %>' />
+                                Text='<%# Eval("Phone") %>' />
                         </td>
                     </tr>
                 </table>
