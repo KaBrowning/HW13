@@ -68,9 +68,9 @@
         </asp:SqlDataSource>
         <br />
         <br />
-        <asp:Button ID="btnPage1" runat="server" PostBackUrl="~/Products.aspx" Text="Products" />
+        <asp:Button ID="btnProducts" runat="server" PostBackUrl="~/Products.aspx" Text="Products" OnClick="btnProducts_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnSuppliers" runat="server" PostBackUrl="~/Suppliers.aspx" Text="Suppliers" />
+        <asp:Button ID="btnSuppliers" runat="server" PostBackUrl="~/Suppliers.aspx" Text="Suppliers" OnClick="btnSuppliers_Click" />
     </form>
     </section>
 </body>

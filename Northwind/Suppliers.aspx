@@ -18,7 +18,7 @@
             DataValueField="Country" AutoPostBack="True">
         </asp:DropDownList>
         <asp:SqlDataSource ID="sdsCountry" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
-            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Country] FROM 
+            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT DISTINCT([Country]) FROM 
             [tblSuppliers] ORDER BY [Country]"></asp:SqlDataSource>   
         <br />
         <br />        
@@ -60,9 +60,9 @@
             </asp:SqlDataSource>
         <br />
         <br />
-        <asp:Button ID="btnPage1" runat="server" PostBackUrl="~/Products.aspx" Text="Products" />
+        <asp:Button ID="btnProducts" runat="server" PostBackUrl="~/Products.aspx" Text="Products" OnClick="btnProducts_Click" />
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:Button ID="btnSuppliers" runat="server" PostBackUrl="~/Suppliers.aspx" Text="Suppliers" />
+        <asp:Button ID="btnSuppliers" runat="server" PostBackUrl="~/Suppliers.aspx" Text="Suppliers" OnClick="btnSuppliers_Click" />
     </form>
   </section>
 </body>
