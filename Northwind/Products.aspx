@@ -50,6 +50,10 @@
                             <asp:Label ID="lblOnHand" runat="server" 
                                 Text='<%# Eval("UnitsInStock") %>' />
                         </td>
+                        <td class="col4">
+                            <asp:Label ID="Label1" runat="server" 
+                                Text='<%# Eval("Total", "{0:C}") %>' />
+                        </td>
                     </tr>
                 </table>
             </ItemTemplate>
