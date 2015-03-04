@@ -14,12 +14,17 @@
     <section>
     <form id="form1" runat="server">
         <label>Choose a category:&nbsp;</label>
-        <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" DataSourceID="sdsNorthwind" DataTextField="CategoryName" DataValueField="CategoryID">
+        <asp:DropDownList ID="ddlCategory" runat="server" AutoPostBack="True" DataSourceID="sdsNorthwind" 
+            DataTextField="CategoryName" DataValueField="CategoryID">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="sdsNorthwind" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [CategoryID], [CategoryName] FROM [tblCategories]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="sdsNorthwind" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [CategoryID], 
+            [CategoryName] FROM [tblCategories]"></asp:SqlDataSource>
         <br />
         <br />
         <asp:DataList ID="dlProducts" runat="server" DataKeyField="ProductID" DataSourceID="sdsProducts">
+            <AlternatingItemStyle BackColor="#E3EAEB" />
+            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
             <HeaderTemplate>
                 <table>
                     <tr>
@@ -31,34 +36,27 @@
                     </tr>
                 </table>
             </HeaderTemplate>
-                        <ItemTemplate>
+            <ItemTemplate>
                 <table>
                     <tr>
                         <td class="col1">
-                            <asp:Label ID="lblID" runat="server" 
-                                Text='<%# Eval("ProductID") %>' />
+                            <asp:Label ID="lblID" runat="server" Text='<%# Eval("ProductID") %>' />
                         </td>
                         <td class="col2">
-                            <asp:Label ID="lblName" runat="server" 
-                                Text='<%# Eval("ProductName") %>' />
+                            <asp:Label ID="lblName" runat="server" Text='<%# Eval("ProductName") %>' />
                         </td>
                         <td class="col3">
-                            <asp:Label ID="lblUnitPrice" runat="server" 
-                                Text='<%# Eval("UnitPrice", "{0:C}") %>' />
+                            <asp:Label ID="lblUnitPrice" runat="server" Text='<%# Eval("UnitPrice", "{0:C}") %>' />
                         </td>
                         <td class="col4">
-                            <asp:Label ID="lblOnHand" runat="server" 
-                                Text='<%# Eval("UnitsInStock") %>' />
+                            <asp:Label ID="lblOnHand" runat="server" Text='<%# Eval("UnitsInStock") %>' />
                         </td>
                         <td class="col4">
-                            <asp:Label ID="Label1" runat="server" 
-                                Text='<%# Eval("Total", "{0:C}") %>' />
+                            <asp:Label ID="Label1" runat="server" Text='<%# Eval("Total", "{0:C}") %>' />
                         </td>
                     </tr>
                 </table>
             </ItemTemplate>
-            <AlternatingItemStyle BackColor="#E3EAEB" />
-            <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         </asp:DataList>
         <asp:SqlDataSource ID="sdsProducts" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
             ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
@@ -70,7 +68,9 @@
         </asp:SqlDataSource>
         <br />
         <br />
-        <br />
+        <asp:Button ID="btnPage1" runat="server" PostBackUrl="~/Products.aspx" Text="Products" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnSuppliers" runat="server" PostBackUrl="~/Suppliers.aspx" Text="Suppliers" />
     </form>
     </section>
 </body>

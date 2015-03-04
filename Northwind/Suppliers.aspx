@@ -13,29 +13,32 @@
    </header>
     <section>
     <form id="form1" runat="server">
-        <asp:DropDownList ID="ddlSuppliers" runat="server" DataSourceID="sdsCountry" DataTextField="Country" DataValueField="Country" AutoPostBack="True">
+        <label>Choose a country:&nbsp;</label>
+        <asp:DropDownList ID="ddlSuppliers" runat="server" DataSourceID="sdsCountry" DataTextField="Country" 
+            DataValueField="Country" AutoPostBack="True">
         </asp:DropDownList>
-        <asp:SqlDataSource ID="sdsCountry" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString2 %>" 
-            ProviderName="<%$ ConnectionStrings:ConnectionString2.ProviderName %>" SelectCommand="SELECT [Country] FROM 
-            [tblSuppliers] ORDER BY [Country]"></asp:SqlDataSource>
-        
+        <asp:SqlDataSource ID="sdsCountry" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
+            ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" SelectCommand="SELECT [Country] FROM 
+            [tblSuppliers] ORDER BY [Country]"></asp:SqlDataSource>   
+        <br />
+        <br />        
         <asp:DataList ID="dlSuppliers" runat="server" DataKeyField="CompanyName" DataSourceID="sdsCompanyContact">
         <HeaderTemplate>
                 <table>
                     <tr>
-                        <td class="col1">Company Name</td>
-                        <td class="col2">Phone Number</td>
+                        <td class="col2">Company Name</td>
+                        <td class="col1">Phone Number</td>
                     </tr>
                 </table>
             </HeaderTemplate>
             <ItemTemplate>
                 <table>
                     <tr>
-                        <td class="col1">
+                        <td class="col2">
                             <asp:Label ID="lblCompanyName" runat="server" 
                                 Text='<%# Eval("CompanyName") %>' />
                         </td>
-                        <td class="col2">
+                        <td class="col1">
                             <asp:Label ID="lblPhoneNumber" runat="server" 
                                 Text='<%# Eval("Phone") %>' />
                         </td>
@@ -46,13 +49,20 @@
             <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
         </asp:DataList>
 
-        <asp:SqlDataSource ID="sdsCompanyContact" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
-             ProviderName="<%$ ConnectionStrings:SuppliersConnectionString.ProviderName %>" 
-            SelectCommand="SELECT [CompanyName], [Phone] FROM [tblSuppliers] ORDER BY [Country]">
+        <asp:SqlDataSource ID="sdsCompanyContact" runat="server" 
+            ConnectionString="<%$ ConnectionStrings:ConnectionString %>"
+             ProviderName="<%$ ConnectionStrings:ConnectionString.ProviderName %>" 
+            SelectCommand="SELECT [CompanyName], [Phone] FROM [tblSuppliers] WHERE ([Country] = ?) ORDER BY [Country]">
         <SelectParameters>
-                <asp:ControlParameter ControlID="ddlSuppliers" Name="CategoryID" PropertyName="SelectedValue" />
+                <asp:ControlParameter ControlID="ddlSuppliers" Name="Country" 
+                    PropertyName="SelectedValue" Type="String"/>
             </SelectParameters>
             </asp:SqlDataSource>
+        <br />
+        <br />
+        <asp:Button ID="btnPage1" runat="server" PostBackUrl="~/Products.aspx" Text="Products" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="btnSuppliers" runat="server" PostBackUrl="~/Suppliers.aspx" Text="Suppliers" />
     </form>
   </section>
 </body>
